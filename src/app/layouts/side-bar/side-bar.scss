@@ -1,0 +1,63 @@
+.side-bar {
+  width: 65px;
+  height: 100%;
+  position: relative;
+
+  .nav-conatiner {
+    height: 100%;
+    border-radius: var(--radius-md);
+
+    .expand-button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: rgb(102, 102, 199);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 41px;
+      right: -11px;
+    }
+
+    .nav {
+      .route-link {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        justify-content: center;
+        gap: 8px;
+
+        .icon {
+          width: 25px;
+          height: 25px;
+        }
+        .label {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.expand {
+    width: 250px;
+
+    .nav-conatiner {
+      .expand-button {
+        .icon {
+          transform: rotateY(180deg);
+        }
+      }
+
+      .nav {
+        .route-link {
+          justify-content: flex-start;
+          .label {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

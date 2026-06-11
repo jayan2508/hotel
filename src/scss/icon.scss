@@ -1,0 +1,40 @@
+$svg-path: '/icons';
+
+@mixin svg-mask($icon-name) {
+  mask: url('#{$svg-path}/#{$icon-name}.svg') no-repeat center;
+  mask-size: contain;
+
+  -webkit-mask: url('#{$svg-path}/#{$icon-name}.svg') no-repeat center;
+  -webkit-mask-size: contain;
+}
+
+// Base icon styles
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  color: inherit;
+}
+
+// SVG list
+$svg-icons: (
+  dashboard: 'dashboard',
+  chevron-right: 'chevron-right',
+  search: 'search',
+  users: 'users',
+  calendar-range: 'calendar-range',
+  chart: 'chart',
+  clock: 'clock',
+  file-text: 'file-text',
+  school: 'school',
+  settings: 'settings',
+  bell: 'bell',
+);
+
+// Generate classes
+@each $class, $file in $svg-icons {
+  .icon-#{$class} {
+    @include svg-mask($file);
+  }
+}

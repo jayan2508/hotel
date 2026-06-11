@@ -1,0 +1,9 @@
+button {
+  &.gray-icon {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    color: var(--grey-color);
+    width: 40px;
+    height: 40px;
+  }
+}

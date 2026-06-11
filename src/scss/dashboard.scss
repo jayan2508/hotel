@@ -1,0 +1,35 @@
+/* =========================
+   REVENUE CARD STYLE
+========================= */
+
+.revenue-card .card-title {
+  color: var(--primary-color);
+}
+
+.revenue-card .card-value {
+  color: var(--dark-color);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.revenue-card .card-growth {
+  color: var(--success-color);
+}
+
+
+/* =========================
+   DASHBOARD CARD STYLE
+========================= */
+
+.dashboard-card {
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+}

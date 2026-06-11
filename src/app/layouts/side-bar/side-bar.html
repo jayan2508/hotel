@@ -1,0 +1,19 @@
+<div class="side-bar" [class.expand]="isExpand">
+  <div class="nav-conatiner common-border">
+    <button class="expand-button" (click)="openSideBar()">
+      <span class="icon icon-chevron-right"></span>
+    </button>
+
+    <nav class="nav">
+      @for (menu of SidebarItem; track menu.id) {
+        <a [routerLink]="menu.route" class="route-link">
+          <span class="icon icon-{{ menu.icon }}"> </span>
+
+          <span class="label">
+            {{ menu.label }}
+          </span>
+        </a>
+      }
+    </nav>
+  </div>
+</div>
