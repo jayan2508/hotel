@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0px;
+}
+
+a,
+input,
+button,
+text,
+select {
+  outline: none;
+  background: inherit;
+  border: initial;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

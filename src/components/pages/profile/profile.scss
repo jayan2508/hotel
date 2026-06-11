@@ -1,0 +1,138 @@
+/* =========================
+   PROFILE CARD STYLE
+========================= */
+
+.profile-card {
+  width: 100%;
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+/* =========================
+   PROFILE HEADER STYLE
+========================= */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-bottom: 30px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  column-gap: 10px;
+}
+
+/* =========================
+   PROFILE IMAGE STYLE
+========================= */
+
+.profile-image img {
+  width: 100%;
+  height: 85px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+
+/* =========================
+   PROFILE INFO STYLE
+========================= */
+
+.profile-info h3 {
+  font-size: 22px;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.profile-info span {
+  font-size: 14px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* =========================
+   PROFILE FORM STYLE
+========================= */
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+/* =========================
+   FORM GROUP STYLE
+========================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   LABEL STYLE
+========================= */
+
+.form-group label {
+  font-size: 13px;
+  color: var(--grey-color);
+  margin-bottom: 8px;
+}
+
+/* =========================
+   INPUT STYLE
+========================= */
+
+.form-group input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--dark-color);
+  background: var(--light-color);
+  outline: none;
+  transition: 0.3s ease;
+}
+
+/* =========================
+   INPUT FOCUS STYLE
+========================= */
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  background: var(--white-color);
+}
+
+/* =========================
+   BUTTON STYLE
+========================= */
+
+.profile-btn {
+  width: 100%;
+  height: 50px;
+  margin-top: 28px;
+  border: none;
+  border-radius: 14px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* =========================
+   BUTTON HOVER STYLE
+========================= */
+
+.profile-btn:hover {
+  opacity: 0.9;
+}

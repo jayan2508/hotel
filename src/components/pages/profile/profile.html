@@ -1,0 +1,59 @@
+<!-- =========================
+     PROFILE EDIT CARD HTML
+========================= -->
+
+<div class="profile-card">
+  <div class="profile-header">
+    <div class="profile-image">
+      <img src="profile.jpg" alt="Profile" />
+    </div>
+
+    <div class="profile-info">
+      <h3>Admin Hotel</h3>
+      <span>Super Admin</span>
+    </div>
+  </div>
+
+  <div class="profile-form">
+    <div class="form-container">
+      @for (field of profileFields; track field.key) {
+        @switch (field.type) {
+          @case ('select') {
+            <app-input
+              type="select"
+              [fieldName]="field.label"
+              [options]="field.options || []"
+              [value]="field.value"
+            >
+            </app-input>
+          }
+
+          @case ('array') {
+            <div class="array-container">
+              @for (arrayField of field.arrayFields; track arrayField.key) {
+                <app-input
+                  [type]="arrayField.type || 'text'"
+                  [fieldName]="arrayField.label"
+                  [value]="arrayField.value"
+                >
+                </app-input>
+              }
+            </div>
+          }
+
+          @default {
+            <app-input
+              [type]="field.type"
+              [fieldName]="field.label"
+              [value]="field.value"
+              [placeHolder]="'Enter ' + field.label"
+            >
+            </app-input>
+          }
+        }
+      }
+    </div>
+
+    <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+  </div>
+</div>

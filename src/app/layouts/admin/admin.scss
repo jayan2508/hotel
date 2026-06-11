@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  padding: 8px;
+  height: 100dvh;
+  gap: 8px;
+
+  .main-content {
+    flex: 1 1;
+  }
+}

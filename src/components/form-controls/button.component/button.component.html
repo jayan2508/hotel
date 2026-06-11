@@ -1,0 +1,17 @@
+<button
+  [type]="type"
+  [class]="buttonClass"
+  [disabled]="isDisabled"
+  (clcik)="click($event)"
+  (dblclick)="dblclick($event)"
+>
+  @if (label) {
+    <span class="label">
+      {{ label }}
+    </span>
+  }
+
+  @if (icon) {
+    <span class="icon icon-{{ icon }}"></span>
+  }
+</button>

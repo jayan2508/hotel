@@ -1,0 +1,63 @@
+<div class="input-wrapper">
+  <div class="input-container">
+    @if (fieldName) {
+      <p class="field-label">
+        {{ fieldName }}
+        @if (isRequired) {
+          <span>*</span>
+        }
+      </p>
+    }
+
+    <label class="input-label" [for]="id">
+
+      @if (type === 'select') {
+        <select
+          #inputRef
+          [id]="id"
+          [class]="inputClass"
+          [disabled]="isDisabled"
+          (change)="change($event)"
+          (blur)="blur($event)"
+          (focus)="focus($event)"
+        >
+          <option value="">
+            Select {{ fieldName }}
+          </option>
+
+          @for (option of options; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
+        </select>
+      } @else {
+
+        <input
+          #inputRef
+          [id]="id"
+          [type]="type"
+          [class]="inputClass"
+          [value]="value"
+          [placeholder]="placeHolder"
+          [disabled]="isDisabled"
+          [required]="isRequired"
+          (input)="input($event)"
+          (change)="change($event)"
+          (blur)="blur($event)"
+          (focus)="focus($event)"
+        />
+
+      }
+
+    </label>
+  </div>
+
+  <div class="error-message">
+    @for (error of errorMessage; track error.__trackId) {
+      @if (error.message) {
+        <span>{{ error.message }}</span>
+      }
+    }
+  </div>
+</div>
