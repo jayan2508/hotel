@@ -1,5 +1,5 @@
 .side-bar {
-  width: 65px;
+  width: 55px;
   height: 100%;
   position: relative;
 
@@ -8,8 +8,8 @@
     border-radius: var(--radius-md);
 
     .expand-button {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background-color: rgb(102, 102, 199);
       color: #fff;
@@ -17,21 +17,71 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 41px;
+      top: 30px;
       right: -11px;
+
+      .icon-chevron-right {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     .nav {
+      padding: 8px;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      gap: 8px;
+      flex-direction: column;
+
+      .logo {
+        padding: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid #cbcbcb;
+        width: 100%;
+        padding-bottom: 16px;
+        padding-top: 10px;
+        color: var(--black-color);
+
+        .label {
+          display: none;
+        }
+
+        .icon {
+          width: 24px;
+          height: 20px;
+        }
+      }
+
       .route-link {
+        width: 100%;
         display: flex;
         align-items: center;
         padding: 8px;
         justify-content: center;
         gap: 8px;
+        color: #9ca3af;
+        text-decoration: none;
+        border-radius: var(--radius-sm);
 
+        &.active {
+          background-color: #e5e0fa;
+          color: #847eff;
+        }
+
+        &.active,
+        & {
+          &:hover {
+            background-color: #f8f6ff;
+            color: #9c97fd;
+          }
+        }
         .icon {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
         }
         .label {
           display: none;
@@ -41,7 +91,7 @@
   }
 
   &.expand {
-    width: 250px;
+    width: 200px;
 
     .nav-conatiner {
       .expand-button {
@@ -51,6 +101,12 @@
       }
 
       .nav {
+        .logo {
+          .label {
+            display: block;
+          }
+        }
+
         .route-link {
           justify-content: flex-start;
           .label {

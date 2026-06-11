@@ -5,8 +5,13 @@
     </button>
 
     <nav class="nav">
+      <div class="logo">
+        <span class="icon icon-logo"> </span>
+        <span class="label"> PeopleOS </span>
+      </div>
+
       @for (menu of SidebarItem; track menu.id) {
-        <a [routerLink]="menu.route" class="route-link">
+        <a [routerLink]="menu.route" routerLinkActive="active" class="route-link">
           <span class="icon icon-{{ menu.icon }}"> </span>
 
           <span class="label">

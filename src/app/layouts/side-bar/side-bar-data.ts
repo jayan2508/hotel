@@ -14,6 +14,12 @@ export const SidebarItem: ISidebarItem[] = [
     route: 'users',
   },
   {
+    id: 12,
+    label: 'Profile',
+    icon: 'user',
+    route: 'profile',
+  },
+  {
     id: 3,
 
     label: 'Products',
