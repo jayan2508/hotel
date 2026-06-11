@@ -1,21 +1,35 @@
 <header>
-  <div>
-    <h1 class="black">{{ pageName }}</h1>
+  <div class="header-container">
+    <div class="left-content">
+      <h1 class="black header-title">{{ pageName }}</h1>
+      <p class="gray sub-title">Manage users, roles, and system settings</p>
+    </div>
 
-    <p class="gray">Monday, 14 July 2025 • Good morning, Admin</p>
+    <!-- <div>
+      <label for="search" class="search-label">
+        <input class="search-input" id="search" type="text" />
+      </label>
+      <app-button icon="bell" buttonClass="gray-icon"> </app-button>
+    </div> -->
+
+    <div class="right-content">
+      <button class="notification-button"><img src="icons/notification.svg" alt="" /></button>
+      <ul class="theme-toggle">
+        @for (item of themeData; track $index) {
+          <li
+            [ngClass]="{
+              active: item.value === selectedTheme,
+            }"
+            (click)="toggleTheme(item.value)"
+          >
+            <img
+              [src]="item.value === selectedTheme ? item.activeIcon : item.inactiveIcon"
+              alt=""
+            />
+          </li>
+        }
+      </ul>
+      <button class="add-employee-button"><img src="icons/plus.svg" alt="" />Add Employee</button>
+    </div>
   </div>
-
-  <div>
-    <label for="search" class="search-label">
-      <input class="search-input" id="search" type="text" />
-    </label>
-
-    <app-button icon="bell" buttonClass="gray-icon">
-
-
-    </app-button>
-
-  </div>
-
-  <div></div>
 </header>
