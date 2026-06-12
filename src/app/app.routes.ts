@@ -7,6 +7,15 @@ export const routes: Routes = [
     loadComponent: () => import('./layouts/admin/admin').then((m) => m.Admin),
     children: [
       {
+        path: ERouterName.Dashboard,
+        loadComponent: () =>
+          import('../components/pages/dashboard/dashboard').then((c) => c.Dashboard),
+      },
+      {
+        path: ERouterName.Users,
+        loadComponent: () => import('../components/pages/users/users').then((c) => c.Users),
+      },
+      {
         path: ERouterName.Profile,
         loadComponent: () => import('../components/pages/profile/profile').then((c) => c.Profile),
       },

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SidebarItem } from './side-bar-data';
 
@@ -11,9 +11,9 @@ import { SidebarItem } from './side-bar-data';
 export class SideBar {
   SidebarItem = SidebarItem;
 
-  isExpand = false;
+  isExpand = signal<boolean>(false);
 
   openSideBar(): void {
-    this.isExpand = !this.isExpand;
+    this.isExpand.set(!this.isExpand());
   }
 }

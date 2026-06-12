@@ -1,138 +1,109 @@
-/* =========================
-   PROFILE CARD STYLE
-========================= */
-
-.profile-card {
-  width: 100%;
-  background: var(--white-color);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--card-shadow);
-}
-
-/* =========================
-   PROFILE HEADER STYLE
-========================= */
-
-.profile-header {
+.profile-containe {
   display: flex;
-  align-items: center;
-  gap: 0px;
-  margin-bottom: 30px;
-}
+  align-items: start;
+  justify-content: start;
+  gap: 12px;
 
-.form-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  column-gap: 10px;
-}
+  .profile-card {
+    flex: 1 1;
+    .profile-form {
+      padding: 24px;
+      background-color: #fff;
+      border-radius: 18px;
+      border: 1px solid #e8e8e8;
 
-/* =========================
-   PROFILE IMAGE STYLE
-========================= */
+      .profile-form-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 12px;
 
-.profile-image img {
-  width: 100%;
-  height: 85px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--primary-color);
-}
+        .header-icon {
+          height: 32px;
+          width: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
 
-/* =========================
-   PROFILE INFO STYLE
-========================= */
+          &.blue-icon {
+            background: #ede9fe;
+            color: #6c63ff;
+          }
 
-.profile-info h3 {
-  font-size: 22px;
-  color: var(--dark-color);
-  margin-bottom: 4px;
-}
+          &.green-icon {
+            background: #d1fae5;
+            color: #059669;
+          }
 
-.profile-info span {
-  font-size: 14px;
-  color: var(--primary-color);
-  font-weight: 600;
-}
+          .icon {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
 
-/* =========================
-   PROFILE FORM STYLE
-========================= */
+      .form-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 12px;
+      }
+    }
+  }
 
-.profile-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-}
+  .profile-update {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid #e8e8e8;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-/* =========================
-   FORM GROUP STYLE
-========================= */
+    .show-profile {
+      // overflow: hidden;
+      position: relative;
+      width: auto;
+      display: inline-block;
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
+      .image-containe {
+        border-radius: 50%;
+        background: #ede9fe;
+        border: 3px dashed #c4b5fd;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
 
-/* =========================
-   LABEL STYLE
-========================= */
+        .profile-photo {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
+      }
 
-.form-group label {
-  font-size: 13px;
-  color: var(--grey-color);
-  margin-bottom: 8px;
-}
+      .update-profile {
+        position: absolute;
+        background: #6c63ff;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        bottom: 0px;
+        right: 8px;
+        color: #fff;
 
-/* =========================
-   INPUT STYLE
-========================= */
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-.form-group input {
-  width: 100%;
-  height: 48px;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 0 16px;
-  font-size: 14px;
-  color: var(--dark-color);
-  background: var(--light-color);
-  outline: none;
-  transition: 0.3s ease;
-}
-
-/* =========================
-   INPUT FOCUS STYLE
-========================= */
-
-.form-group input:focus {
-  border-color: var(--primary-color);
-  background: var(--white-color);
-}
-
-/* =========================
-   BUTTON STYLE
-========================= */
-
-.profile-btn {
-  width: 100%;
-  height: 50px;
-  margin-top: 28px;
-  border: none;
-  border-radius: 14px;
-  background: var(--primary-color);
-  color: var(--white-color);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-/* =========================
-   BUTTON HOVER STYLE
-========================= */
-
-.profile-btn:hover {
-  opacity: 0.9;
+        .icon {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
 }
