@@ -40,8 +40,12 @@ export class Profile implements OnInit {
   }
 
   onInput(event: any): void {
-    debugger;
     console.log(event, this.profileForm.value, this.profileFields);
+  }
+
+  inputChanges(event: any): void {
+    console.log(event);
+    this.profileForm.controls[event.field]?.setValue(event.value);
   }
 
   save(): void {

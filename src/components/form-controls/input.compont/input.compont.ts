@@ -65,7 +65,7 @@ export class InputCompont implements OnInit, OnChanges {
     }
   }
 
-  private applyAttributes(): void {
+  applyAttributes(): void {
     if (!this.inputRef) return;
 
     this.attributes.forEach((attr) => {
@@ -73,28 +73,32 @@ export class InputCompont implements OnInit, OnChanges {
     });
   }
 
-  public input(event: Event): void {
-    debugger;
-    this.inputValue.emit({
-      field: this.fieldName,
-      value: this.value,
-    });
+  input(event: Event): void {
     const value = (event.target as any)?.value || '';
     console.log(this.fieldName, value || '');
+    // this.inputValue.emit({
+    //   field: this.fieldName,
+    //   value: value,
+    // });
   }
 
-  public change(event: Event): void {
-    debugger;
+  change(event: Event): void {
     this.changeValue.emit(event);
     const value = (event.target as any)?.value || '';
-    console.log('change', this.fieldName, value || '',this.value);
+    console.log('change', this.fieldName, value || '', this.value);
+
+    console.log(this.value);
+    this.inputValue.emit({
+      field: this.fieldName,
+      value: value,
+    });
   }
 
-  public focus(event: Event): void {
+  focus(event: Event): void {
     this.onFocus.emit(event);
   }
 
-  public blur(event: Event): void {
+  blur(event: Event): void {
     this.onBlur.emit(event);
   }
 }

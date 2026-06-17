@@ -32,6 +32,7 @@
                       [type]="arrayField.type || 'text'"
                       [fieldName]="arrayField.label"
                       [value]="arrayField.value"
+                      (inputValue)="inputChanges($event)"
                     >
                     </app-input>
                   }
@@ -41,9 +42,10 @@
               @default {
                 <app-input
                   [type]="field.type"
-                  [fieldName]="field.label"
+                  [fieldName]="field.key"
                   [value]="field.value"
                   [placeHolder]="'Enter ' + field.label"
+                      (inputValue)="inputChanges($event)"
                 >
                 </app-input>
               }
