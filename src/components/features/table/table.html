@@ -1,0 +1,111 @@
+<div class="table-container">
+  <table class="user-table">
+    <caption>
+      <div class="caption-wrapper">
+        <div class="title-section">
+          <h2>User Management</h2>
+
+          <span class="count-badge"> {{ users.length }} admins </span>
+        </div>
+
+        <div class="filter-section">
+          <div class="search-box">
+            <input
+              (input)="searchText = $event.target.value"
+              type="text"
+              placeholder="Search users..."
+            />
+          </div>
+
+          <select>
+            <option>Role: All</option>
+            <option>Super Admin</option>
+            <option>HR Admin</option>
+            <option>Manager</option>
+            <option>Viewer</option>
+          </select>
+        </div>
+      </div>
+    </caption>
+
+    <thead>
+      <tr>
+        @for (item of showColumn; track item) {
+          <th>{{ item }}</th>
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @if (users.length) {
+        @for (
+          user of [...users, ...users, ...users, ...users, ...users]
+            | filter
+              : {
+                  keys: showColumn,
+                  value: searchText,
+                };
+          track user.email
+        ) {
+          <tr>
+            @for (item of showColumn; track item) {
+              <td>
+                @if (user.avatar && item == 'name') {
+                  <div class="user-info">
+                    <img [src]="user.avatar" alt="" />
+                    <span>{{ user?.[item] }}</span>
+                  </div>
+                } @else if ('role' === item) {
+                  <span class="badge" [class]="getRoleClass(user?.[item])">{{ user?.[item] }}</span>
+                } @else if ('status' == item) {
+                  <span class="badge" [class]="getStatusClass(user?.[item])">{{
+                    user?.[item]
+                  }}</span>
+                } @else if ('actions' == item) {
+                } @else {
+                  <span>{{ user?.[item] }}</span>
+                }
+              </td>
+            }
+
+            <!-- <td>
+              <span class="email">
+                {{ user.email }}
+              </span>
+            </td>
+
+            <td>
+              <span class="badge" [class]="getRoleClass(user.role)">
+                {{ user.role }}
+              </span>
+            </td>
+
+            <td>
+              <span class="badge" [class]="getStatusClass(user.status)">
+                {{ user.status }}
+              </span>
+            </td>
+
+            <td>
+              <span class="lastlogin">
+                {{ user.lastLogin }}
+              </span>
+            </td> -->
+
+            <!-- <td>
+              <div class="actions">
+                <button class="icon-btn">✏️</button>
+
+                <button class="icon-btn delete">🗑️</button>
+              </div>
+            </td> -->
+          </tr>
+        }
+      } @else {
+        <tr>
+          <td colspan="6" class="empty-state">No Users Found</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

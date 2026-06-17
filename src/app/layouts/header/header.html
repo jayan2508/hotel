@@ -1,8 +1,8 @@
 <header>
   <div class="header-container">
     <div class="left-content">
-      <h1 class="black header-title">{{ pageName }}</h1>
-      <p class="gray sub-title">Manage users, roles, and system settings</p>
+      <h1 class="black header-title">{{ headerService.headerTitle() }}</h1>
+      <p class="gray sub-title">{{ date }} • {{ time }} • {{ greeting }}, Sardar sir</p>
     </div>
 
     <!-- <div>
@@ -13,9 +13,9 @@
     </div> -->
 
     <div class="right-content">
-      <button class="notification-button"><img src="icons/notification.svg" alt="" /></button>
+      <button class="notification-button"><span class="icon icon-bell" alt=""> </span></button>
       <ul class="theme-toggle">
-        @for (item of themeData; track $index) {
+        @for (item of themeData; track item.id) {
           <li
             [ngClass]="{
               active: item.value === selectedTheme,
@@ -29,7 +29,9 @@
           </li>
         }
       </ul>
-      <button class="add-employee-button"><img src="icons/plus.svg" alt="" />Add Employee</button>
+      <button class="add-employee-button">
+        <span class="icon icon-plus" alt=""></span>Add Employee
+      </button>
     </div>
   </div>
 </header>

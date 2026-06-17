@@ -2,58 +2,122 @@
      PROFILE EDIT CARD HTML
 ========================= -->
 
-<div class="profile-card">
-  <div class="profile-header">
-    <div class="profile-image">
-      <img src="profile.jpg" alt="Profile" />
-    </div>
-
-    <div class="profile-info">
-      <h3>Admin Hotel</h3>
-      <span>Super Admin</span>
-    </div>
-  </div>
-
-  <div class="profile-form">
-    <div class="form-container">
-      @for (field of profileFields; track field.key) {
-        @switch (field.type) {
-          @case ('select') {
-            <app-input
-              type="select"
-              [fieldName]="field.label"
-              [options]="field.options || []"
-              [value]="field.value"
-            >
-            </app-input>
-          }
-
-          @case ('array') {
-            <div class="array-container">
-              @for (arrayField of field.arrayFields; track arrayField.key) {
+<div class="profile-containe">
+  <div class="profile-card">
+    <div class="profile-form">
+      <div class="profile-form-header">
+        <div class="header-icon blue-icon">
+          <span class="icon icon-user"></span>
+        </div>
+        <span>Personal Information</span>
+      </div>
+      <form [formGroup]="profileForm">
+        <div class="form-container">
+          @for (field of profileFields; track field.key) {
+            @switch (field.type) {
+              @case ('select') {
                 <app-input
-                  [type]="arrayField.type || 'text'"
-                  [fieldName]="arrayField.label"
-                  [value]="arrayField.value"
+                  type="select"
+                  [fieldName]="field.label"
+                  [options]="field.options || []"
+                  (change)="onInput($event)"
                 >
                 </app-input>
               }
-            </div>
-          }
 
-          @default {
-            <app-input
-              [type]="field.type"
-              [fieldName]="field.label"
-              [value]="field.value"
-              [placeHolder]="'Enter ' + field.label"
-            >
-            </app-input>
+              @case ('array') {
+                <div class="array-container">
+                  @for (arrayField of field.arrayFields; track arrayField.key) {
+                    <app-input
+                      [type]="arrayField.type || 'text'"
+                      [fieldName]="arrayField.label"
+                      [value]="arrayField.value"
+                    >
+                    </app-input>
+                  }
+                </div>
+              }
+
+              @default {
+                <app-input
+                  [type]="field.type"
+                  [fieldName]="field.label"
+                  [value]="field.value"
+                  [placeHolder]="'Enter ' + field.label"
+                >
+                </app-input>
+              }
+            }
           }
-        }
-      }
+        </div>
+
+        <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+      </form>
     </div>
 
-    <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+    <div class="profile-form">
+      <div class="profile-form-header">
+        <div class="header-icon green-icon">
+          <span class="icon icon-bag"></span>
+        </div>
+        <span>Employment Details</span>
+      </div>
+
+      <div class="form-container">
+        @for (field of profileFields; track field.key) {
+          @switch (field.type) {
+            @case ('select') {
+              <app-input
+                type="select"
+                [fieldName]="field.label"
+                [options]="field.options || []"
+                [value]="field.value"
+              >
+              </app-input>
+            }
+
+            @case ('array') {
+              <div class="array-container">
+                @for (arrayField of field.arrayFields; track arrayField.key) {
+                  <app-input
+                    [type]="arrayField.type || 'text'"
+                    [fieldName]="arrayField.label"
+                    [value]="arrayField.value"
+                  >
+                  </app-input>
+                }
+              </div>
+            }
+
+            @default {
+              <app-input
+                [type]="field.type"
+                [fieldName]="field.label"
+                [value]="field.value"
+                [placeHolder]="'Enter ' + field.label"
+              >
+              </app-input>
+            }
+          }
+        }
+      </div>
+
+      <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+    </div>
+  </div>
+
+  <div class="profile-update">
+    <div class="show-profile">
+      <div class="image-containe">
+        <img
+          class="profile-photo"
+          src="https://storage.googleapis.com/banani-avatars/avatar/female/25-35/East Asian/6"
+          alt=""
+        />
+      </div>
+      <button class="update-profile">
+        <span class="icon icon-plus"></span>
+      </button>
+    </div>
   </div>
 </div>

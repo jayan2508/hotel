@@ -2,11 +2,27 @@
   display: flex;
   justify-content: start;
   align-items: stretch;
-  padding: 8px;
+  // padding: 8px;
   height: 100dvh;
-  gap: 8px;
+  // gap: 8px;
+  background-color: #f5f6fa;
+
+  .side-bar-component {
+    background-color: #fff;
+  }
 
   .main-content {
     flex: 1 1;
+
+    .header-component {
+      background-color: #fff;
+    }
+
+    .router-contain {
+      height: 90.9vh;
+      padding: 24px;
+      background-color: #f5f6fa;
+      overflow: auto;
+    }
   }
 }

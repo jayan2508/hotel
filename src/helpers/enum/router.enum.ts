@@ -8,4 +8,5 @@ export enum ERouterName {
   Dashboard = 'dashboard',
   Login = 'login',
   Profile = 'profile',
+  Users = 'users',
 }

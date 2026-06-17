@@ -3,6 +3,14 @@
 * {
   box-sizing: border-box;
   transition: all 0.15s linear;
+  // cursor: url('/pointers/arrow.png') 0 0, auto !important;
+}
+
+html,
+body {
+  cursor:
+    image-set(url('/pointers/cursor.png') 1.7x) 3 3,
+    default;
 }
 
 .common-border {
@@ -16,5 +24,27 @@ textarea {
 
   &:disabled {
     cursor: not-allowed;
+  }
+}
+
+/* Modern Scrollbar for whole app */
+* {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #efefef;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cec3ff;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c0b2ff;
   }
 }
