@@ -10,7 +10,7 @@ import { HeaderService } from '../../../services/header.service';
 export class Dashboard implements OnInit {
   constructor(private headerService: HeaderService) {}
 
-  cards = [{},{},{},{}];
+  cards = [{}, {}, {}, {}];
 
   ngOnInit(): void {
     this.upadateHeaderTitle();

@@ -16,6 +16,7 @@ interface InputAttribute {
   value: any;
   __trackId?: string;
 }
+
 @Component({
   selector: 'app-input',
   imports: [],
@@ -33,12 +34,12 @@ export class InputCompont implements OnInit, OnChanges {
   @Input() value = '';
   @Input() isDisabled = false;
   @Input() errorMessage: any[] = [];
-  @Input() isRequired:boolean = false;
+  @Input() isRequired: boolean = false;
   @Input() options: { label: string; value: any }[] = [];
   id = '';
 
-  @Output() onInput = new EventEmitter<Event>();
-  @Output() onChange = new EventEmitter<Event>();
+  @Output() inputValue = new EventEmitter<any>();
+  @Output() changeValue = new EventEmitter<Event>();
   @Output() onFocus = new EventEmitter<Event>();
   @Output() onBlur = new EventEmitter<Event>();
 
@@ -73,11 +74,20 @@ export class InputCompont implements OnInit, OnChanges {
   }
 
   public input(event: Event): void {
-    this.onInput.emit(event);
+    debugger;
+    this.inputValue.emit({
+      field: this.fieldName,
+      value: this.value,
+    });
+    const value = (event.target as any)?.value || '';
+    console.log(this.fieldName, value || '');
   }
 
   public change(event: Event): void {
-    this.onChange.emit(event);
+    debugger;
+    this.changeValue.emit(event);
+    const value = (event.target as any)?.value || '';
+    console.log('change', this.fieldName, value || '',this.value);
   }
 
   public focus(event: Event): void {

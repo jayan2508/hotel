@@ -1,5 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { LoginService } from '../../../../services/login.service';
+import { LocalStorage } from '../../../../services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +21,16 @@ export class LoginComponent {
   showPassword = signal(false);
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private localStorage: LocalStorage,
+  ) {}
 
-  ngOninit() {
+  ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
@@ -30,9 +42,20 @@ export class LoginComponent {
 
     this.loading.set(true);
 
-    setTimeout(() => {
-      this.loading.set(false);
-      console.log(this.loginForm.value);
-    }, 2000);
+    this.loginService.loginUser(this.loginForm.value).subscribe({
+      next: (res) => {
+        console.log('res', res);
+        this.localStorage.setLcoalStorag('user',res)
+        this.loading.set(false);
+      },
+      error: (error) => {
+        this.errorMessage(error);
+      },
+    });
+  }
+
+  errorMessage(error: any): void {
+    this.loading.set(false);
+    console.log(error);
   }
 }

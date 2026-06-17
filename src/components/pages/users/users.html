@@ -1,24 +1,20 @@
-<section class="dashboard">
-  <!-- <div clas="dashboard"> -->
-  @for (item of cards; track $index) {
-    <div class="dashboard-card">
-      <div class="card-icon">
-        <span class="icon icon-user"></span>
-      </div>
+<section class="users">
+  <div class="users-container">
+    @for (item of cards; track $index) {
+      <div class="users-card">
+        <div class="card-icon">
+          <span class="icon icon-user"></span>
+        </div>
 
-      <div class="card-main-details">
-        <span class="card-name">Total Employees</span>
-      </div>
-
-      <div class="card-suammary">
-        <strong class="symmary-count">100</strong>
-
-        <div class="summary-persontage">
-          <span class="icon icon-trad"></span>
-          <span class="summary-perogresh">+4.3%</span>
+        <div class="card-main-details">
+          <span class="card-name">Total Employees</span>
+          <strong class="symmary-count">100</strong>
         </div>
       </div>
-    </div>
-  }
-  <!-- </div> -->
+    }
+  </div>
+
+  <div class="users-table">
+    <app-table></app-table>
+  </div>
 </section>

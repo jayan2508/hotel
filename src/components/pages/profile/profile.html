@@ -11,47 +11,48 @@
         </div>
         <span>Personal Information</span>
       </div>
+      <form [formGroup]="profileForm">
+        <div class="form-container">
+          @for (field of profileFields; track field.key) {
+            @switch (field.type) {
+              @case ('select') {
+                <app-input
+                  type="select"
+                  [fieldName]="field.label"
+                  [options]="field.options || []"
+                  (change)="onInput($event)"
+                >
+                </app-input>
+              }
 
-      <div class="form-container">
-        @for (field of profileFields; track field.key) {
-          @switch (field.type) {
-            @case ('select') {
-              <app-input
-                type="select"
-                [fieldName]="field.label"
-                [options]="field.options || []"
-                [value]="field.value"
-              >
-              </app-input>
-            }
+              @case ('array') {
+                <div class="array-container">
+                  @for (arrayField of field.arrayFields; track arrayField.key) {
+                    <app-input
+                      [type]="arrayField.type || 'text'"
+                      [fieldName]="arrayField.label"
+                      [value]="arrayField.value"
+                    >
+                    </app-input>
+                  }
+                </div>
+              }
 
-            @case ('array') {
-              <div class="array-container">
-                @for (arrayField of field.arrayFields; track arrayField.key) {
-                  <app-input
-                    [type]="arrayField.type || 'text'"
-                    [fieldName]="arrayField.label"
-                    [value]="arrayField.value"
-                  >
-                  </app-input>
-                }
-              </div>
-            }
-
-            @default {
-              <app-input
-                [type]="field.type"
-                [fieldName]="field.label"
-                [value]="field.value"
-                [placeHolder]="'Enter ' + field.label"
-              >
-              </app-input>
+              @default {
+                <app-input
+                  [type]="field.type"
+                  [fieldName]="field.label"
+                  [value]="field.value"
+                  [placeHolder]="'Enter ' + field.label"
+                >
+                </app-input>
+              }
             }
           }
-        }
-      </div>
+        </div>
 
-      <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+        <app-button label="Save" [buttonClass]="'button-primary'" (onClick)="save()"> </app-button>
+      </form>
     </div>
 
     <div class="profile-form">

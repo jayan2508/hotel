@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormService } from '../../../services/dynamic-form.service';
 import { profileFields } from './profile-data';
 import { InputCompont } from '../../form-controls/input.compont/input.compont';
@@ -9,7 +9,7 @@ import { HeaderService } from '../../../services/header.service';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [InputCompont, ButtonComponent],
+  imports: [InputCompont, ButtonComponent, ɵInternalFormsSharedModule, ReactiveFormsModule],
   templateUrl: './profile.html',
   styleUrl: './profile.scss',
   providers: [DynamicFormService],
@@ -36,7 +36,15 @@ export class Profile implements OnInit {
   createProfileForm(): void {
     this.profileForm = this.dynamicFormService.createForm(profileFields);
     console.log(this.profileForm.value);
+    console.log(this.profileForm.value);
   }
 
-  save(): void {}
+  onInput(event: any): void {
+    debugger;
+    console.log(event, this.profileForm.value, this.profileFields);
+  }
+
+  save(): void {
+    console.log(this.profileForm.value, this.profileFields);
+  }
 }

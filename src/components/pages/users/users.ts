@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../../../services/header.service';
+import { Table } from "../../features/table/table";
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [Table],
   templateUrl: './users.html',
   styleUrl: './users.scss',
 })
